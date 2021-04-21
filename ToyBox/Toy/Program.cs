@@ -9,11 +9,11 @@ namespace ToyBox
         {
             string answer = string.Empty, person, area, name, manu,note, amount;
             double price;
-
             Console.WriteLine("Welcome to the ToyBox application!");
 
             ToyBox user = new ToyBox();
             Toy t1 = new Toy();
+            Dictionary<string, List<Toy>> peo = new Dictionary<string, List<Toy>>();
             do
             {
                 Console.WriteLine("Please enter a name for a toy box:");
@@ -25,7 +25,7 @@ namespace ToyBox
                     Owner = person,
                     Location = area
                 };
-
+                peo.Add(person+ ',' + area, new List<Toy>());
 
                 do
                 {
@@ -49,7 +49,7 @@ namespace ToyBox
                         Price = price
                     };
                     t1.SetNotes(note);
-                    user.Toys.Add(t1);
+                    peo[person + ',' + area].Add(t1);
                     Console.WriteLine("Would you like to enter in a toy? Type 'yes' or 'no'");
                     answer = Console.ReadLine();
                 } while (answer != "no");
@@ -58,19 +58,25 @@ namespace ToyBox
                 answer = Console.ReadLine();
             } while (answer != "no");
 
-            Console.WriteLine($"{user.Owner} is located in {user.Location} with toys of: ");
-            for (int i = 0; i < user.Toys.Count; i++)
+            foreach (var item in peo)
             {
-                Console.WriteLine(user.Toys[i]);
+                String[] sp = item.Key.Split(',');
+                Console.WriteLine($"\n{sp[0]} is located in {sp[1]} with toys of:");
+                for (int i = 0; i < item.Value.Count; i++)
+                {
+                    Console.WriteLine(item.Value[i]);
+                }
             }
-            
-
-          
-
-
-
-            //Console.WriteLine(tb1.GetRandomToy());
-
+            foreach (var item in peo)
+            {
+                String[] sp = item.Key.Split(',');
+                for (int i = 0; i < item.Value.Count; i++)
+                {
+                    user.Toys.Add(item.Value[i]);
+                }
+                Console.WriteLine($"\nA random toy in {sp[0]} toy box is:");
+                Console.WriteLine(user.GetRandomToy());
+            }
          }
     }
 }
