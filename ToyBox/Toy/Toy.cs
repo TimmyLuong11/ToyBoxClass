@@ -55,7 +55,7 @@ namespace ToyBox
         
         public override string ToString()
         {
-            return $"Toy Manufacturer is: \t{GetAisle()} \nThe toy name is: \t{Name} \nThe toy cost is: \t{Price.ToString("C")} \nNotes about the toy: \t{GetNotes()}";
+            return $"The toy name is: \t\t{Name} \nThe toy manufacturer by: \t{Manufacturer} \nThe toy cost is: \t\t{Price.ToString("C")} \nThe toy can be found in aisle:  {GetAisle()} \nNotes about the toy: \t\t{GetNotes()}";
         }
     }
 }

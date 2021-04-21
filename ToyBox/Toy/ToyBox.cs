@@ -20,7 +20,7 @@ namespace ToyBox
         public Toy GetRandomToy()
         {
             Random ran = new Random();
-            int ranNum = ran.Next(1, Toys.Count);
+            int ranNum = ran.Next(0, Toys.Count);
             return Toys[ranNum];
         }
     }
