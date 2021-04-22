@@ -25,7 +25,7 @@ namespace ToyBox
                     Owner = person,
                     Location = area
                 };
-                peo.Add(person+ ',' + area, new List<Toy>());
+                peo.Add(user.Owner+ ',' + user.Location, new List<Toy>());
 
                 do
                 {
@@ -52,11 +52,11 @@ namespace ToyBox
                     peo[person + ',' + area].Add(t1);
                     Console.WriteLine("Would you like to enter in a toy? Type 'yes' or 'no'");
                     answer = Console.ReadLine();
-                } while (answer != "no");
+                } while (answer[0] != 'n');
 
                 Console.WriteLine("Would you like to enter in another person? Type 'yes' or 'no'");
                 answer = Console.ReadLine();
-            } while (answer != "no");
+            } while (answer[0] != 'n');
 
             foreach (var item in peo)
             {
@@ -76,7 +76,10 @@ namespace ToyBox
                 }
                 Console.WriteLine($"\nA random toy in {sp[0]} toy box is:");
                 Console.WriteLine(user.GetRandomToy());
+                user.Toys.Clear();
             }
+
+            Console.WriteLine("\nThank you for adding your toy and toy boxes. Have a great day!");
          }
     }
 }
