@@ -53,6 +53,10 @@ namespace ToyBox
             return $"{Manufacturer.ToUpper()[0]}{ranNum}";
         }
         
+        /// <summary>
+        /// This returns a sentence of the user inputs
+        /// </summary>
+        /// <returns>The sentence of what the user inputed</returns>
         public override string ToString()
         {
             return $"\n{Name} is manufactured by {Manufacturer}, which cost {Price.ToString("C")} and can be found on aisle {GetAisle()}. \nSome notes about the toy is: {GetNotes()}";

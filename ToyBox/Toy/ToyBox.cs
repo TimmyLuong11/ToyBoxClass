@@ -6,10 +6,14 @@ namespace ToyBox
 {
     class ToyBox
     {
+        //Initializing Variables
         public List<Toy> Toys { get; set; }
         public string Owner { get; set; }
         public string Location { get; set; }
 
+        /// <summary>
+        /// Default/Empty constructor that sets the instance of the Toy to starting values
+        /// </summary>
         public ToyBox()
         {
             Toys = new List<Toy>();
@@ -17,6 +21,10 @@ namespace ToyBox
             Location = string.Empty;
         }
 
+        /// <summary>
+        /// The method will return a random toy in each toy box
+        /// </summary>
+        /// <returns>A random toy in each toy box</returns>
         public Toy GetRandomToy()
         {
             Random ran = new Random();
